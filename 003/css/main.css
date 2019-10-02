@@ -7,10 +7,25 @@ h5,
 h6,
 p,
 ul,
-li {
+li,
+button {
   margin: 0;
   padding: 0;
   list-style: none;
+  border: 0;
+}
+
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus,
+h6:focus,
+p:focus,
+ul:focus,
+li:focus,
+button:focus {
+  outline: 0;
 }
 
 body {
@@ -79,6 +94,14 @@ header .main-heading {
   position: relative;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+@media screen and (max-width: 799px) {
+  header .main-heading {
+    -ms-grid-columns: 20px (1fr)[12] 20px;
+        grid-template-columns: 20px repeat(12, 1fr) 20px;
+    grid-column-gap: 10px;
+  }
 }
 
 header .main-heading:before {
@@ -604,13 +627,51 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   margin: auto;
 }
 
-.wrapper section {
+@media screen and (max-width: 799px) {
+  .wrapper .module {
+    grid-column-gap: 10px;
+    -ms-grid-columns: 20px (1fr)[12] 20px;
+        grid-template-columns: 20px repeat(12, 1fr) 20px;
+  }
+}
+
+.wrapper .module .content {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 10;
+  grid-column: 3 / 13;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  grid-column-gap: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+  .wrapper .module .content {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 12;
+    grid-column: 2 / 14;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .wrapper .module .content {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 12;
+    grid-column: 2 / 14;
+  }
+}
+
+section {
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
 @media screen and (max-width: 799px) {
-  .wrapper section {
+  section {
     padding-top: 50px;
     padding-bottom: 50px;
   }
@@ -664,22 +725,14 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 
 .tour-list .content {
   width: 100%;
-  -ms-grid-column: 3;
-      grid-column-start: 3;
-  grid-column-end: 13;
   margin: auto;
-}
-
-@media screen and (max-width: 1023px) {
-  .tour-list .content {
-    -ms-grid-column: 2;
-        grid-column-start: 2;
-    grid-column-end: 14;
-  }
 }
 
 .tour-list .content .shows {
   margin-bottom: 60px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1 / 11;
 }
 
 .tour-list .content .shows li {
@@ -701,6 +754,7 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
       grid-template-areas: "date place country buttons";
   -webkit-transition: all 0.6s ease;
   transition: all 0.6s ease;
+  cursor: default;
 }
 
 .tour-list .content .shows li:hover {
@@ -810,6 +864,12 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   -webkit-box-shadow: inset 0px 0px 0px 1px #9c9c9c, inset 0px -40px 0px #9c9c9c;
           box-shadow: inset 0px 0px 0px 1px #9c9c9c, inset 0px -40px 0px #9c9c9c;
   color: white;
+}
+
+.tour-list .content .btn {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-column: 1 / 11;
 }
 
 .videos {
@@ -1036,32 +1096,12 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 }
 
 .album .content {
-  width: 100%;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 10;
-  grid-column: 3 / 13;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[10];
-      grid-template-columns: repeat(10, 1fr);
-  grid-column-gap: 20px;
   -ms-grid-rows: auto auto auto;
       grid-template-rows: auto auto auto;
 }
 
-@media screen and (max-width: 1023px) {
-  .album .content {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 12;
-    grid-column: 2 / 14;
-  }
-}
-
 @media screen and (max-width: 799px) {
   .album .content {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 12;
-    grid-column: 2 / 14;
     justify-items: center;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -1211,6 +1251,7 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   transition: all 0.6s ease;
   position: relative;
   margin: 0 10%;
+  cursor: default;
 }
 
 @media screen and (max-width: 1240px) {
@@ -1453,23 +1494,19 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
           transform: translateY(150px);
 }
 
-.follow .content {
-  width: 100%;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 10;
-  grid-column: 3 / 13;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[10];
-      grid-template-columns: repeat(10, 1fr);
-  grid-column-gap: 20px;
+@media screen and (max-width: 799px) {
+  .follow .content {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 20px;
+  }
 }
 
 .follow .content .newsletter,
 .follow .content .social {
   overflow: hidden;
   position: relative;
-  height: 374px;
+  height: 360px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1479,6 +1516,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .follow .content .newsletter,
+  .follow .content .social {
+    height: 280px;
+  }
 }
 
 .follow .content .newsletter img,
@@ -1491,8 +1535,8 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   -webkit-filter: grayscale(100%);
 }
 
-.follow .content .newsletter p,
-.follow .content .social p {
+.follow .content .newsletter .social-title,
+.follow .content .social .social-title {
   position: absolute;
   z-index: 3;
   color: transparent;
@@ -1506,8 +1550,8 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 }
 
 @media screen and (max-width: 1240px) {
-  .follow .content .newsletter p,
-  .follow .content .social p {
+  .follow .content .newsletter .social-title,
+  .follow .content .social .social-title {
     font-size: 28px;
   }
 }
@@ -1543,6 +1587,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   background-color: #7fb6ca;
 }
 
+@media screen and (max-width: 799px) {
+  .follow .content .newsletter {
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+}
+
 .follow .content .newsletter p {
   left: 40px;
   top: 20px;
@@ -1573,7 +1624,16 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   position: relative;
 }
 
-.follow .content .social p {
+@media screen and (max-width: 799px) {
+  .follow .content .social {
+    -ms-grid-column: 1;
+    grid-column: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.follow .content .social .social-title {
   right: 40px;
   top: 20px;
 }
@@ -1581,5 +1641,70 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 .follow .content .social .social-icons {
   z-index: 3;
   position: absolute;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.follow .content .social .social-icons .network {
+  margin: 0 5%;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .follow .content .social .social-icons .network {
+    margin: 0 4%;
+  }
+}
+
+.follow .content .social .social-icons .network img {
+  width: 48px;
+  height: 48px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+@media screen and (max-width: 1023px) {
+  .follow .content .social .social-icons .network img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.follow .content .social .social-icons .network .social-name {
+  opacity: 0;
+  font-size: 16px;
+  color: #e7eff5;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  -webkit-transform: translateY(60px);
+          transform: translateY(60px);
+}
+
+.follow .content .social .social-icons .network:hover img {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.follow .content .social .social-icons .network:hover .social-name {
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  opacity: 0.8;
 }
 /*# sourceMappingURL=main.css.map */

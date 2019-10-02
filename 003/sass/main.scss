@@ -48,10 +48,16 @@ h5,
 h6,
 p,
 ul,
-li {
+li,
+button {
     margin: 0;
     padding: 0;
     list-style: none;
+    border: 0;
+
+    &:focus {
+        outline: 0;
+    }
 }
 
 body {
@@ -115,6 +121,11 @@ header {
         grid-column-gap: 20px;
         position: relative;
         transition: all 0.4s ease;
+
+        @include sm {
+            grid-template-columns: 20px repeat(12, 1fr) 20px;
+            grid-column-gap: 10px;
+        }
 
         &:before {
             content: "";
@@ -499,18 +510,44 @@ header {
         max-width: 1920px;
         margin: auto;
 
-    }
-
-    section {
-        padding-top: 100px;
-        padding-bottom: 100px;
-
         @include sm {
-            padding-top: 50px;
-            padding-bottom: 50px;
+            grid-column-gap: 10px;
+
+            grid-template-columns: 20px repeat(12, 1fr) 20px;
+
+        }
+
+        .content {
+            grid-column: 3 / 13;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-gap: 20px;
+
+            @include md {
+                grid-column: 2 / 14;
+            }
+
+            @include sm {
+                grid-template-columns: repeat(1, 1fr);
+                grid-column: 2 / 14;
+            }
         }
     }
+
+
 }
+
+section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @include sm {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
 
 // modules
 .tour-list {
@@ -544,17 +581,11 @@ header {
 
     .content {
         width: 100%;
-        grid-column-start: 3;
-        grid-column-end: 13;
         margin: auto;
-
-        @include md {
-            grid-column-start: 2;
-            grid-column-end: 14;
-        }
 
         .shows {
             margin-bottom: 60px;
+            grid-column: 1 / 11;
 
             li {
                 display: grid;
@@ -570,6 +601,7 @@ header {
                 border-bottom: 1px solid $m-02;
                 grid-template-areas: "date place country buttons";
                 transition: all 0.6s ease;
+                cursor: default;
 
                 &:hover {
                     background-color: rgba(231, 239, 245, 0.5);
@@ -665,6 +697,10 @@ header {
                     }
                 }
             }
+        }
+
+        .btn {
+            grid-column: 1 / 11;
         }
     }
 }
@@ -852,27 +888,16 @@ header {
     }
 
     .content {
-        width: 100%;
-        grid-column: 3 / 13;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-column-gap: 20px;
         grid-template-rows: auto auto auto;
         //grid-template-areas: "cover cover cover cover""button tracks";
 
-        @include md {
-            grid-column: 2 / 14;
-        }
-
         @include sm {
-            grid-column: 2 / 14;
             justify-items: center;
             grid-template-columns: 1fr;
             width: 100%;
         }
 
         .cover {
-
             grid-column: 1 / 5;
             grid-row: 1 / 2;
             z-index: 1;
@@ -974,6 +999,7 @@ header {
                     transition: all 0.6s ease;
                     position: relative;
                     margin: 0 10%;
+                    cursor: default;
 
                     @include lg {
                         margin: 0 6%;
@@ -1170,20 +1196,26 @@ header {
     }
 
     .content {
-        width: 100%;
-        grid-column: 3 / 13;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-column-gap: 20px;
+
+
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+            grid-row-gap: 20px;
+        }
 
         .newsletter,
         .social {
             overflow: hidden;
             position: relative;
-            height: 374px;
+            height: 360px;
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @include md {
+                height: 280px;
+            }
+
 
             img {
                 width: 100%;
@@ -1193,7 +1225,7 @@ header {
                 -webkit-filter: grayscale(100%);
             }
 
-            p {
+            .social-title {
                 position: absolute;
                 z-index: 3;
                 color: transparent;
@@ -1237,6 +1269,10 @@ header {
             grid-column: 1 / 6;
             background-color: $m-01;
 
+            @include sm {
+                grid-column: 1;
+            }
+
             p {
                 left: 40px;
                 top: 20px;
@@ -1264,7 +1300,12 @@ header {
             transform: translateY(50px);
             position: relative;
 
-            p {
+            @include sm {
+                grid-column: 1;
+                transform: translateY(0px);
+            }
+
+            .social-title {
                 right: 40px;
                 top: 20px;
             }
@@ -1272,6 +1313,64 @@ header {
             .social-icons {
                 z-index: 3;
                 position: absolute;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+
+                .network {
+                    margin: 0 5%;
+                    cursor: pointer;
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+
+                    @include md {
+                        margin: 0 4%;
+                    }
+
+                    img {
+                        width: 48px;
+                        height: 48px;
+                        transition: all 0.4s ease;
+
+                        @include md {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+
+                    .social-name {
+                        opacity: 0;
+                        font-size: 16px;
+                        color: $m-02;
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+                        position: absolute;
+                        bottom: 0;
+                        transition: all 0.4s ease;
+                        transform: translateY(60px);
+
+                    }
+
+
+
+
+
+                    &:hover {
+
+                        img {
+                            transform: translateY(-10px);
+                        }
+
+                        .social-name {
+                            transform: translateY(30px);
+                            opacity: 0.8;
+                        }
+
+                    }
+                }
 
             }
         }
