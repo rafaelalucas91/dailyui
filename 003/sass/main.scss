@@ -123,7 +123,7 @@ header {
         transition: all 0.4s ease;
 
         @include sm {
-            grid-template-columns: 20px repeat(12, 1fr) 20px;
+            grid-template-columns: 10px repeat(12, 1fr) 10px;
             grid-column-gap: 10px;
         }
 
@@ -513,7 +513,7 @@ header {
         @include sm {
             grid-column-gap: 10px;
 
-            grid-template-columns: 20px repeat(12, 1fr) 20px;
+            grid-template-columns: 10px repeat(12, 1fr) 10px;
 
         }
 
@@ -562,7 +562,7 @@ section {
         border: 1px solid $m-01;
         right: 0;
         transform: translatey(-200px);
-        animation: beforeShape1 6s ease infinite alternate;
+        animation: beforeShape1 6s ease infinite alternate both;
 
         @keyframes beforeShape1 {
             0% {
@@ -716,7 +716,7 @@ section {
         height: 630px;
         background-color: $m-01;
         left: 0;
-        animation: beforeShape2 6s ease infinite alternate;
+        animation: beforeShape2 6s ease infinite alternate both;
 
         @keyframes beforeShape2 {
             0% {
@@ -869,7 +869,7 @@ section {
         left: 0;
         transform: translatey(-20px);
         grid-column-start: 12;
-        animation: beforeShape3 6s ease infinite alternate;
+        animation: beforeShape3 6s ease infinite alternate both;
 
         @keyframes beforeShape3 {
             0% {
@@ -1016,6 +1016,7 @@ section {
 
                     @include xs {
                         margin: 0 20px;
+                        font-size: 12px;
                     }
 
                     article {
@@ -1066,6 +1067,10 @@ section {
                             transition: all 0.4s ease;
                             transform: translateX(20px);
                             cursor: pointer;
+
+                            &:first-child {
+                                margin-left: 0;
+                            }
 
                             @include sm {
                                 opacity: 0.6;
@@ -1165,18 +1170,18 @@ section {
         background-color: $m-02;
         left: 0;
         bottom: 0;
-
         transform: translateX(-50%);
         grid-column: 1 / 5;
-        //animation: beforeShape4 6s ease infinite alternate;
+        animation: beforeShape5 6s 1s ease infinite alternate both;
 
-        @keyframes beforeShape4 {
+
+        @keyframes beforeShape5 {
             0% {
-                transform: translate(50px, 50px);
+                transform: translate(-60%, 50px);
             }
 
             100% {
-                transform: translate(0px, -50px);
+                transform: translate(-50%, -50px);
             }
         }
 
@@ -1193,6 +1198,17 @@ section {
         top: 0;
         height: 400px;
         transform: translateY(150px);
+        animation: beforeShape6 6s 1s ease infinite alternate both;
+
+        @keyframes beforeShape6 {
+            0% {
+                transform: translate(-50px, 150px);
+            }
+
+            100% {
+                transform: translate(50px, 180px);
+            }
+        }
     }
 
     .content {
@@ -1214,6 +1230,10 @@ section {
 
             @include md {
                 height: 280px;
+            }
+
+            @include md {
+                height: 200px;
             }
 
 
@@ -1241,6 +1261,7 @@ section {
                     font-size: 28px;
                 }
 
+
             }
 
             &:before,
@@ -1253,6 +1274,7 @@ section {
                 z-index: 1;
                 left: 0;
                 top: 0;
+                transition: all 0.4s ease;
             }
 
             &:before {
@@ -1262,6 +1284,16 @@ section {
             &:after {
                 opacity: 0.6;
                 z-index: 2;
+            }
+
+            &:hover {
+                &:after {
+                    opacity: 0.8;
+                }
+
+                .social-title {
+                    color: white;
+                }
             }
         }
 
@@ -1273,23 +1305,67 @@ section {
                 grid-column: 1;
             }
 
-            p {
+            .social-title {
                 left: 40px;
                 top: 20px;
+
+                @include sm {
+                    left: 20px;
+                }
             }
 
             .form {
                 z-index: 3;
                 position: absolute;
-
                 width: 100%;
-                max-width: 500px;
                 padding: 0 10%;
                 box-sizing: border-box;
-                height: 30px;
 
                 input {
                     width: 100%;
+                    background-color: transparent;
+                    color: white;
+                    border: 0;
+                    box-shadow: inset 0px -2px 0px white;
+                    padding: 10px 40px 10px 10px;
+
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    font-size: 18px;
+
+                    letter-spacing: 0.05em;
+                    box-sizing: border-box;
+
+                    &:focus {
+                        outline: 0;
+                    }
+
+                    &::placeholder {
+                        color: white;
+                        text-transform: uppercase;
+                        font-weight: 900;
+                        font-size: 18px;
+                        opacity: 0.5;
+                        letter-spacing: 0.05em;
+                    }
+                }
+
+                .send {
+                    width: 24px;
+                    height: 24px;
+                    position: absolute;
+                    z-index: 3;
+                    right: 10%;
+                    top: 0;
+                    transition: all 0.4s ease;
+                    background-image: url(https://rafaelalucas91.github.io/assets/icons/white/icon-12.svg);
+                    transform: translate(-10px, 5px);
+                    cursor: pointer;
+
+
+                    &:hover {
+                        transform: translate(0px, 5px);
+                    }
                 }
             }
         }
@@ -1308,6 +1384,11 @@ section {
             .social-title {
                 right: 40px;
                 top: 20px;
+                cursor: default;
+
+                @include sm {
+                    right: 20px;
+                }
             }
 
             .social-icons {
@@ -1342,7 +1423,7 @@ section {
 
                     .social-name {
                         opacity: 0;
-                        font-size: 16px;
+                        font-size: 14px;
                         color: $m-02;
                         text-transform: uppercase;
                         font-weight: 500;
@@ -1377,4 +1458,73 @@ section {
 
 
     }
+}
+
+footer {
+
+    padding-top: 200px;
+
+    .content {
+        background-color: $neu-06;
+        width: 100%;
+        height: 290px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(14, 1fr);
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: solid 1px $m-01;
+            grid-column: 2 / 14;
+            transform: translateY(-50px);
+
+
+        }
+
+        article {
+            grid-column: 2/14;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 3;
+
+            .text {
+
+                color: $m-01;
+                text-align: center;
+                font-weight: 500;
+
+            }
+
+            .credits {
+                display: block;
+                color: $neu-04;
+                text-align: center;
+                margin-top: 20px;
+                opacity: 0.5;
+
+                font-size: 14px;
+
+                a {
+                    color: $m-02;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: white;
+                        opacity: 1;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+
 }
