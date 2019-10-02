@@ -35,6 +35,10 @@ body {
   overflow-x: hidden;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 .btn {
   min-width: 160px;
   padding: 16px 30px;
@@ -98,6 +102,13 @@ nav .icon-menu {
   transition: all 0.6s ease;
   -webkit-box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.1);
           box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 799px) {
+  nav .icon-menu {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 nav .icon-menu span {
@@ -181,15 +192,51 @@ nav .icon-menu.icon-open span:after {
 nav .menu {
   width: 100vw;
   height: 100%;
-  background-color: #7fb6ca;
   position: absolute;
   top: 0;
   z-index: 4;
   visibility: hidden;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 0.6s 0.2s ease;
+  transition: all 0.6s 0.2s ease;
+}
+
+nav .menu:before, nav .menu:after {
+  content: '';
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav .menu:before {
+  background-color: black;
+  -webkit-transition: all 0.6s 0.2s ease;
+  transition: all 0.6s 0.2s ease;
+}
+
+nav .menu:after {
+  background: white;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
 nav .menu.menu-open {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
   visibility: visible;
+}
+
+nav .menu.menu-open:before {
+  -webkit-transition: all 0.6s 0.2s ease;
+  transition: all 0.6s 0.2s ease;
+}
+
+nav .menu.menu-open:after {
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
 header {
