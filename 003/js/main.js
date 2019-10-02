@@ -8,19 +8,19 @@ window.addEventListener("load", event => {
 
     const images = [{
             id: 0,
-            image: "/assets/angele-03.jpg"
+            image: "assets/angele-03.jpg"
         },
         {
             id: 1,
-            image: "/assets/angele-10.jpg"
+            image: "assets/angele-10.jpg"
         },
         {
             id: 2,
-            image: "/assets/angele-11.jpg"
+            image: "assets/angele-11.jpg"
         },
         {
             id: 3,
-            image: "/assets/angele-12.jpg"
+            image: "assets/angele-12.jpg"
         }
     ];
 
