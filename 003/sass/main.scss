@@ -107,6 +107,111 @@ body {
     }
 }
 
+
+
+nav {
+    .icon-menu {
+        width: 48px;
+        height: 48px;
+        //background-color: white;
+        //grid-column-end: 13;
+        z-index: 5;
+        top: 40px;
+        right: 40px;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.6s ease;
+        box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.1);
+
+        span {
+            display: flex;
+            width: 32px;
+            height: 2px;
+            background-color: white;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s 0.2s ease;
+
+            &:before,
+            &:after {
+                position: absolute;
+                width: 32px;
+                height: 2px;
+                content: '';
+                background-color: inherit;
+                transform-origin: center;
+            }
+
+            &:before {
+                transition: all 0.3s ease;
+                top: 14px;
+            }
+
+            &:after {
+                bottom: 14px;
+                transition: all 0.3s ease;
+            }
+
+
+        }
+
+        &:hover {
+            transition: all 0.6s ease;
+            box-shadow: inset 0px 0px 0px 25px rgba(255, 255, 255, 0.2);
+
+            span {
+                &:before {
+                    top: 11px;
+                }
+
+                &:after {
+                    bottom: 11px;
+                }
+            }
+        }
+
+        &.icon-open {
+            span {
+                width: 0;
+                transition: all 0.4s 0.2s ease;
+
+                &:before {
+                    transition: all 0.4s 0.2s ease;
+                    top: 22px;
+                    transform: rotate(45deg);
+                }
+
+                &:after {
+                    transition: all 0.4s 0.3s ease;
+                    bottom: 23px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+    }
+
+    .menu {
+        width: 100vw;
+        height: 100%;
+        background-color: $m-01;
+        position: absolute;
+        top: 0;
+        z-index: 4;
+        visibility: hidden;
+
+        &.menu-open {
+            visibility: visible;
+
+        }
+    }
+}
+
 // Header
 header {
     width: 100%;
@@ -121,6 +226,7 @@ header {
         grid-column-gap: 20px;
         position: relative;
         transition: all 0.4s ease;
+
 
         @include sm {
             grid-template-columns: 10px repeat(12, 1fr) 10px;
@@ -145,6 +251,7 @@ header {
                 grid-column-end: 15;
             }
         }
+
 
         article {
             grid-column-start: 3;
@@ -176,7 +283,7 @@ header {
             }
 
             .site-subtitle {
-                font-size: 52px;
+                font-size: 40px;
                 font-weight: 800;
                 text-transform: uppercase;
 
@@ -452,6 +559,7 @@ header {
 
 // Content
 .wrapper {
+
     .section-title {
         color: $m-01;
         text-transform: uppercase;
@@ -469,19 +577,27 @@ header {
         margin-bottom: 40px;
 
         @include sm {
-            font-size: 40px;
+            font-size: 32px;
             height: 85px;
         }
 
         b {
             font-weight: 900;
             margin: 0 10px;
+
+            @include sm {
+                margin: 0 5px;
+            }
         }
 
         span {
             color: transparent;
             -webkit-text-stroke: 1px $m-01;
             margin: 0 10px;
+
+            @include sm {
+                margin: 0 5px;
+            }
         }
 
         &:before {
@@ -535,18 +651,20 @@ header {
         }
     }
 
+    section {
+        padding-top: 100px;
+        padding-bottom: 100px;
 
-}
-
-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
-
-    @include sm {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        @include sm {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
     }
+
+
 }
+
+
 
 
 // modules
@@ -746,7 +864,6 @@ section {
         .video-item {
             background-color: $m-01;
             height: 430px;
-            //object-fit: cover;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -755,8 +872,14 @@ section {
             cursor: pointer;
             width: calc(100% - 1px);
 
+            &:last-child {
+                width: 100%;
+            }
+
             @include sm {
+                width: 100%;
                 height: 200px;
+                margin-bottom: 1px;
             }
 
 
@@ -777,7 +900,7 @@ section {
                 -webkit-text-stroke: 1px white;
                 font-weight: 900;
                 font-size: 40px;
-                letter-spacing: 1px;
+                letter-spacing: 1.5px;
                 text-transform: uppercase;
                 transition: all 0.6s ease;
                 width: 80%;
@@ -1216,7 +1339,7 @@ section {
 
         @include sm {
             grid-template-columns: repeat(1, 1fr);
-            grid-row-gap: 20px;
+            grid-row-gap: 10px;
         }
 
         .newsletter,
@@ -1252,7 +1375,7 @@ section {
                 -webkit-text-stroke: 1px white;
                 font-weight: 900;
                 font-size: 40px;
-                letter-spacing: 1px;
+                letter-spacing: 1.5px;
                 text-transform: uppercase;
                 transition: all 0.6s ease;
 
@@ -1289,10 +1412,18 @@ section {
             &:hover {
                 &:after {
                     opacity: 0.8;
+
+                    @include sm {
+                        opacity: 0.6;
+                    }
                 }
 
                 .social-title {
                     color: white;
+
+                    @include sm {
+                        color: transparent;
+                    }
                 }
             }
         }
@@ -1320,6 +1451,10 @@ section {
                 width: 100%;
                 padding: 0 10%;
                 box-sizing: border-box;
+
+                @include sm {
+                    padding: 0 20px;
+                }
 
                 input {
                     width: 100%;
@@ -1362,6 +1497,10 @@ section {
                     transform: translate(-10px, 5px);
                     cursor: pointer;
 
+                    @include sm {
+                        right: 20px;
+                        transform: translate(-10px, 5px);
+                    }
 
                     &:hover {
                         transform: translate(0px, 5px);
@@ -1433,21 +1572,26 @@ section {
                         transition: all 0.4s ease;
                         transform: translateY(60px);
 
+                        @include sm {
+                            display: none;
+                        }
+
                     }
-
-
-
-
 
                     &:hover {
 
                         img {
                             transform: translateY(-10px);
+
+                            @include sm {
+                                transform: translateY(0px);
+                            }
                         }
 
                         .social-name {
                             transform: translateY(30px);
                             opacity: 0.8;
+
                         }
 
                     }
@@ -1464,6 +1608,10 @@ footer {
 
     padding-top: 200px;
 
+    @include sm {
+        padding-top: 50px;
+    }
+
     .content {
         background-color: $neu-06;
         width: 100%;
@@ -1471,8 +1619,16 @@ footer {
         position: relative;
         display: grid;
         grid-template-columns: repeat(14, 1fr);
+        grid-column-gap: 20px;
         justify-content: center;
         align-items: center;
+
+        @include sm {
+            grid-template-columns: 10px repeat(12, 1fr) 10px;
+            grid-column-gap: 10px;
+
+            height: 180px;
+        }
 
         &:after {
             content: '';
@@ -1482,6 +1638,10 @@ footer {
             border: solid 1px $m-01;
             grid-column: 2 / 14;
             transform: translateY(-50px);
+
+            @include sm {
+                transform: translateY(-20px);
+            }
 
 
         }
@@ -1502,23 +1662,53 @@ footer {
 
             .credits {
                 display: block;
-                color: $neu-04;
+                color: $neu-05;
                 text-align: center;
                 margin-top: 20px;
-                opacity: 0.5;
 
                 font-size: 14px;
 
+
                 a {
-                    color: $m-02;
+                    color: white;
                     text-decoration: none;
                     cursor: pointer;
+                    position: relative;
+                    transition: all 0.4s ease;
+                    padding: 0 2px;
+
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 0%;
+                        background: $g-01;
+                        grid-column: 2 / 14;
+                        transform: translateY(5px);
+                        left: 0;
+                        bottom: 0;
+                        transition: all 0.4s ease;
+                        z-index: -1;
+                    }
+
+                    span {
+                        display: inline-block;
+                    }
+
 
                     &:hover {
-                        color: white;
-                        opacity: 1;
+                        color: $neu-06;
+
+                        &:before {
+                            height: 100%;
+                            transform: translateY(0px);
+                            opacity: 1;
+
+                        }
                     }
                 }
+
 
             }
         }

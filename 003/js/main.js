@@ -8,20 +8,19 @@ window.addEventListener("load", event => {
 
     const images = [{
             id: 0,
-            image: "https://rafaelalucas91.github.io/assets/images/img-28.jpeg"
+            image: "/assets/angele-03.jpg"
         },
         {
             id: 1,
-            image: "https://rafaelalucas91.github.io/assets/images/img-25.jpeg"
+            image: "/assets/angele-10.jpg"
         },
         {
             id: 2,
-            image: "https://rafaelalucas91.github.io/assets/images/img-35.jpeg"
+            image: "/assets/angele-11.jpg"
         },
         {
             id: 3,
-            image: "https://rafaelalucas91.github.io/assets/images/img-30.jpeg",
-            description: "description se quiseres"
+            image: "/assets/angele-12.jpg"
         }
     ];
 
@@ -119,4 +118,23 @@ window.addEventListener("load", event => {
 
     imageNext.src = images[1].image;
     imageNext.dataset.id = images[1].id;
+
+    // open menu
+
+    const iconMenu = document.querySelector('.icon-menu'),
+        menuOverlay = document.querySelector('.menu');
+
+    iconMenu.addEventListener("click", openMenu);
+
+    function openMenu() {
+
+        if (iconMenu.classList.contains('icon-open')) {
+            menuOverlay.classList.remove('menu-open');
+            iconMenu.classList.remove('icon-open');
+        } else {
+            menuOverlay.classList.add('menu-open');
+            iconMenu.classList.add('icon-open');
+        }
+
+    }
 });
