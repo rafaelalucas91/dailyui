@@ -196,13 +196,18 @@ window.addEventListener("load", event => {
 
         videoFrame.src = videoSrc;
 
-        // ytLink.href = videoUrl;
-
-
+        e.preventDefault();
+        videoFrame.attr('src', '');
     }
+
+    // ytLink.href = videoUrl;
+
+
+
 
     function closeVideo() {
         modalVideo.classList.remove('video-open');
     }
+
 
 });
