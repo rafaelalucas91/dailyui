@@ -188,25 +188,24 @@ window.addEventListener("load", event => {
     function openVideo(e) {
         const videoSrc = e.currentTarget.dataset.video,
             videoUrl = e.currentTarget.dataset.url,
-            videoFrame = document.querySelector(".video-code iframe"),
-            ytLink = document.querySelector(".yt-link");
+            videoFrame = document.querySelector(".video-code iframe");
+
+        body.classList.add('no-scroll');
 
 
         modalVideo.classList.add('video-open');
 
         videoFrame.src = videoSrc;
 
-        e.preventDefault();
-        videoFrame.attr('src', '');
     }
 
     // ytLink.href = videoUrl;
 
-
-
-
     function closeVideo() {
+        body.classList.remove('no-scroll');
         modalVideo.classList.remove('video-open');
+        videoFrame.src = "";
+
     }
 
 
