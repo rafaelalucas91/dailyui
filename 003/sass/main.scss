@@ -1365,17 +1365,16 @@ header {
 }
 
 .album {
-    position: relative;
+
 
     &:before {
         content: "";
         position: absolute;
-        width: 100vw;
+        width: 20%;
+        //max-width: 440px;
         height: 520px;
         border: 1px solid $m-01;
-        left: 0;
-        transform: translatey(-20px);
-        grid-column-start: 12;
+        right: 0;
         animation: beforeShape3 6s ease infinite alternate both;
 
         @keyframes beforeShape3 {
@@ -1672,13 +1671,11 @@ header {
     &:after {
         content: "";
         position: absolute;
-        width: 200%;
+        width: 40%;
         height: 300px;
         background-color: $m-02;
         left: 0;
         bottom: 0;
-        transform: translateX(-50%);
-        grid-column: 1 / 5;
         animation: beforeShape5 6s 1s ease infinite alternate both;
 
 
@@ -1700,16 +1697,17 @@ header {
 
     &:after {
         z-index: -1;
-        right: 0;
+        left: initial;
+        width: 100%;
         grid-column: 12 / 14;
+        right: 0;
         top: 0;
         height: 400px;
-        transform: translateY(150px);
         animation: beforeShape6 6s 1s ease infinite alternate both;
 
         @keyframes beforeShape6 {
             0% {
-                transform: translate(-50px, 150px);
+                transform: translate(0px, 150px);
             }
 
             100% {
