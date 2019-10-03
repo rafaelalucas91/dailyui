@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Daily UI 003 - Landing Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
 
@@ -21,7 +21,7 @@
 
         <div class="menu">
             <div class="menu-items">
-                <a href="#" class="item">about</a>
+                <a href="index.html" class="item">about</a>
                 <a href="#" class="item">tour</a>
                 <a href="#" class="item">shop</a>
                 <a href="#" class="item">contacts</a>
@@ -144,22 +144,56 @@
         <section class="videos">
             <h3 class="section-title"><span>latest</span><b>videos</b></h3>
             <div class="content">
-                <div class="video-item">
+
+                <!-- video item -->
+
+                <a class="video-item" data-video="https://www.youtube.com/embed/D6Wi3SmmnAE"
+                    data-url="https://www.youtube.com/watch?v=D6Wi3SmmnAE">
+
                     <p class="video-title">Flou</p>
                     <span class="video-icon"></span>
-
                     <img src="assets/angele-05.jpg" alt="">
-                </div>
-                <div class="video-item">
+
+                </a>
+
+                <!-- video item -->
+
+                <a class="video-item" data-video="https://www.youtube.com/embed/Hi7Rx3En7-k"
+                    data-url="https://www.youtube.com/watch?v=Hi7Rx3En7-k">
                     <p class="video-title">balance ton quoi</p>
                     <span class="video-icon"></span>
                     <img src="assets/angele-04.jpg" alt="">
-                </div>
-                <div class="video-item">
+                </a>
+
+                <!-- video item -->
+
+                <a class="video-item" data-video="https://www.youtube.com/embed/Fy1xQSiLx8U"
+                    data-url="https://www.youtube.com/watch?v=Fy1xQSiLx8U">
                     <p class="video-title">tout oublier</p>
                     <span class="video-icon"></span>
                     <img src="assets/angele-15.jpeg" alt="">
+                </a>
+
+            </div>
+
+            <div class="modal-video">
+
+                <div class="wrapper-video">
+                    <i class="close-video"></i>
+
+                    <div class="video-container">
+                        <div class="video-code">
+                            <iframe width="560" height="315" src="" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+
+                        <a href="" class="yt-link" target="_blank">view on youtube</a>
+
+                    </div>
+
                 </div>
+
             </div>
         </section>
 

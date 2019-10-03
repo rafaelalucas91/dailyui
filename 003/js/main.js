@@ -119,6 +119,19 @@ window.addEventListener("load", event => {
     imageNext.src = images[1].image;
     imageNext.dataset.id = images[1].id;
 
+
+
+    // Sticky menu 
+
+    window.onscroll = function () {
+
+        if (window.pageYOffset >= 90) {
+            iconMenu.classList.add('sticky');
+
+        } else {
+            iconMenu.classList.remove('sticky');
+        }
+    }
     // open menu
 
     const iconMenu = document.querySelector('.icon-menu'),
@@ -127,17 +140,69 @@ window.addEventListener("load", event => {
 
     iconMenu.addEventListener("click", openMenu);
 
+    // Sticky menu 
+
+    window.onscroll = function () {
+
+        if (window.pageYOffset >= 90) {
+            iconMenu.classList.add('sticky');
+
+        } else {
+            iconMenu.classList.remove('sticky');
+        }
+    }
+
+
     function openMenu() {
 
         if (iconMenu.classList.contains('icon-open')) {
             menuOverlay.classList.remove('menu-open');
             iconMenu.classList.remove('icon-open');
             body.classList.remove('no-scroll');
+            iconMenu.classList.add('sticky');
+
         } else {
             menuOverlay.classList.add('menu-open');
             iconMenu.classList.add('icon-open');
             body.classList.add('no-scroll');
+
+            setTimeout(function () {
+                iconMenu.classList.remove('sticky');
+            }, 500);
+
         }
+    }
+
+    // open modal video
+
+    const videoItem = document.querySelectorAll('.video-item'),
+        modalVideo = document.querySelector('.modal-video'),
+        iconCloseVideo = document.querySelector('.close-video');
+
+    videoItem.forEach(function (el) {
+        el.addEventListener("click", openVideo);
+    })
+
+    iconCloseVideo.addEventListener("click", closeVideo);
+
+    function openVideo(e) {
+        const videoSrc = e.currentTarget.dataset.video,
+            videoUrl = e.currentTarget.dataset.url,
+            videoFrame = document.querySelector(".video-code iframe"),
+            ytLink = document.querySelector(".yt-link");
+
+
+        modalVideo.classList.add('video-open');
+
+        videoFrame.src = videoSrc;
+
+        ytLink.href = videoUrl;
+
 
     }
+
+    function closeVideo() {
+        modalVideo.classList.remove('video-open');
+    }
+
 });

@@ -228,7 +228,7 @@ nav .icon-menu {
   z-index: 5;
   top: 40px;
   right: 40px;
-  position: absolute;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,6 +243,7 @@ nav .icon-menu {
   transition: all 0.6s ease;
   -webkit-box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.1);
           box-shadow: inset 0px 0px 0px 0px rgba(255, 255, 255, 0.1);
+  background: transparent;
 }
 
 @media screen and (max-width: 799px) {
@@ -337,17 +338,21 @@ nav .icon-menu.icon-open span:after {
           transform: rotate(-45deg);
 }
 
+nav .icon-menu.sticky {
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  background: linear-gradient(225deg, #7fb6ca 0%, #c6dde2 100%);
+  position: fixed;
+}
+
 nav .menu {
   width: 100vw;
-  height: 100%;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
   z-index: 4;
-  visibility: hidden;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-  -webkit-transition: all 0.6s 0.2s ease;
-  transition: all 0.6s 0.2s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,7 +454,6 @@ nav .menu .menu-items .item:hover {
 nav .menu.menu-open {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
-  visibility: visible;
 }
 
 nav .menu.menu-open:before {
@@ -1326,6 +1330,12 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   width: 100%;
 }
 
+@media screen and (max-width: 1240px) {
+  .videos .content .video-item {
+    height: 320px;
+  }
+}
+
 @media screen and (max-width: 799px) {
   .videos .content .video-item {
     width: 100%;
@@ -1426,6 +1436,125 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 
 .videos .content .video-item:hover:after {
   opacity: 0.8;
+}
+
+.videos .modal-video {
+  z-index: 5;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 799px) {
+  .videos .modal-video {
+    display: none;
+  }
+}
+
+.videos .modal-video:before, .videos .modal-video:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.videos .modal-video:before {
+  background-color: #404145;
+}
+
+.videos .modal-video:after {
+  background-color: #7fb6ca;
+  z-index: -1;
+}
+
+.videos .modal-video .wrapper-video {
+  width: calc(80vw - 80px);
+  height: calc(80vh - 80px);
+  background-color: white;
+  position: absolute;
+  top: calc(50% + 40px);
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) perspective(100em) rotateX(20deg);
+          transform: translate(-50%, -50%) perspective(100em) rotateX(20deg);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
+.videos .modal-video .wrapper-video .close-video {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  background-image: url(https://rafaelalucas91.github.io/assets/icons/gray1/icon-61.svg);
+  right: 40px;
+  top: 40px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.videos .modal-video .wrapper-video .close-video:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.videos .modal-video .wrapper-video .video-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.videos .modal-video .wrapper-video .video-container .video-code iframe {
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.videos .modal-video.video-open {
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  visibility: visible;
+}
+
+.videos .modal-video.video-open:before {
+  opacity: 0.8;
+}
+
+.videos .modal-video.video-open:after {
+  opacity: 0.2;
+}
+
+.videos .modal-video.video-open .wrapper-video {
+  width: 80vw;
+  height: 80vh;
+  opacity: 1;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) perspective(0em) rotateX(0deg);
+          transform: translate(-50%, -50%) perspective(0em) rotateX(0deg);
+}
+
+.videos .modal-video.video-open .wrapper-video .video-container .video-code iframe {
+  -webkit-transition: all 0.6s 0.4s ease;
+  transition: all 0.6s 0.4s ease;
+  opacity: 1;
 }
 
 .album {
