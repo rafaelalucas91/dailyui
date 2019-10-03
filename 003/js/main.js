@@ -196,7 +196,7 @@ window.addEventListener("load", event => {
 
         videoFrame.src = videoSrc;
 
-        ytLink.href = videoUrl;
+        // ytLink.href = videoUrl;
 
 
     }
