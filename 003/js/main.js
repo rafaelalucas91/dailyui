@@ -159,7 +159,7 @@ window.addEventListener("load", event => {
             menuOverlay.classList.remove('menu-open');
             iconMenu.classList.remove('icon-open');
             body.classList.remove('no-scroll');
-            iconMenu.classList.add('sticky');
+            iconMenu.classList.remove('sticky');
 
         } else {
             menuOverlay.classList.add('menu-open');
@@ -180,11 +180,18 @@ window.addEventListener("load", event => {
         iconCloseVideo = document.querySelector('.close-video'),
         videoFrame = document.querySelector(".video-code iframe");
 
+    var modalBefore = window.getComputedStyle(
+        document.querySelector('.modal-video'), ':after'
+    );
+
+
     videoItem.forEach(function (el) {
         el.addEventListener("click", openVideo);
     })
 
     iconCloseVideo.addEventListener("click", closeVideo);
+
+    modalBefore.addEventListener("click", closeVideo);
 
     function openVideo(e) {
         const videoSrc = e.currentTarget.dataset.video;
