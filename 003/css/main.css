@@ -1332,9 +1332,15 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   width: 100%;
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1440px) {
   .videos .content .video-item {
     height: 320px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .videos .content .video-item {
+    height: 240px;
   }
 }
 
@@ -1403,6 +1409,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   background-image: url(https://rafaelalucas91.github.io/assets/icons/white/icon-179.svg);
 }
 
+@media screen and (max-width: 799px) {
+  .videos .content .video-item .video-icon {
+    -webkit-transform: translateY(80px);
+            transform: translateY(80px);
+  }
+}
+
 .videos .content .video-item:before, .videos .content .video-item:after {
   content: '';
   width: 100%;
@@ -1435,6 +1448,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   opacity: 1;
   -webkit-transform: translateY(60px);
           transform: translateY(60px);
+}
+
+@media screen and (max-width: 799px) {
+  .videos .content .video-item:hover .video-icon {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
 }
 
 .videos .content .video-item:hover img {

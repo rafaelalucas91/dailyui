@@ -204,7 +204,8 @@ window.addEventListener("load", event => {
     function closeVideo() {
         body.classList.remove('no-scroll');
         modalVideo.classList.remove('video-open');
-        videoFrame.src = "";
+
+        videoFrame.src = "0";
 
     }
 

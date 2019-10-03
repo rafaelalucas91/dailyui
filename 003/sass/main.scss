@@ -16,6 +16,12 @@ $neu-05: #9c9c9c;
 $neu-06: #404145;
 $neu-07: #1c1c1e;
 
+@mixin xl {
+    @media screen and (max-width: 1440px) {
+        @content;
+    }
+}
+
 @mixin lg {
     @media screen and (max-width: 1240px) {
         @content;
@@ -1091,8 +1097,12 @@ header {
                 width: 100%;
             }
 
-            @include lg {
+            @include xl {
                 height: 320px;
+            }
+
+            @include md {
+                height: 240px;
             }
 
             @include sm {
@@ -1145,6 +1155,10 @@ header {
                 height: 32px;
                 display: block;
                 background-image: url(https://rafaelalucas91.github.io/assets/icons/white/icon-179.svg);
+
+                @include sm {
+                    transform: translateY(80px);
+                }
             }
 
             &:before,
@@ -1181,6 +1195,10 @@ header {
                 .video-icon {
                     opacity: 1;
                     transform: translateY(60px);
+
+                    @include sm {
+                        transform: translateY(40px);
+                    }
                 }
 
 
