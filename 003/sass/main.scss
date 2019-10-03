@@ -1210,9 +1210,6 @@ header {
         left: 0;
         visibility: hidden;
 
-        @include sm {
-            display: none;
-        }
 
         &:before,
         &:after {
@@ -1246,6 +1243,13 @@ header {
             transition: all 0.4s ease;
             opacity: 0;
 
+            @include sm {
+                width: calc(100vw - 80px);
+                height: calc(100vh - 80px);
+            }
+
+
+
             .close-video {
                 width: 32px;
                 height: 32px;
@@ -1259,6 +1263,11 @@ header {
                 &:hover {
                     transform: rotate(90deg);
                 }
+
+                @include sm {
+                    right: 20px;
+                    top: 20px;
+                }
             }
 
             .video-container {
@@ -1270,10 +1279,17 @@ header {
 
 
                 .video-code {
-                    width: 100%;
-                    height: 100%;
-                    padding: 10%;
-                    box-sizing: border-box;
+                    width: 800px;
+                    height: 450px;
+
+                    @include md {
+                        width: 600px;
+                        height: 342px;
+                    }
+
+                    @include sm {
+                        width: 90%;
+                    }
 
                     iframe {
                         transform: translateY(50px);
@@ -1297,11 +1313,17 @@ header {
             }
 
             .wrapper-video {
-                width: 80vw;
+                width: 90vw;
                 height: 80vh;
                 opacity: 1;
                 top: 50%;
                 transform: translate(-50%, -50%) perspective(0em) rotateX(0deg);
+
+
+                @include sm {
+                    width: calc(100vw - 40px);
+                    height: calc(100vh - 40px);
+                }
 
                 .video-container {
                     .video-code {

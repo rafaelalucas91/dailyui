@@ -1460,12 +1460,6 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   visibility: hidden;
 }
 
-@media screen and (max-width: 799px) {
-  .videos .modal-video {
-    display: none;
-  }
-}
-
 .videos .modal-video:before, .videos .modal-video:after {
   content: '';
   width: 100%;
@@ -1501,6 +1495,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
   opacity: 0;
 }
 
+@media screen and (max-width: 799px) {
+  .videos .modal-video .wrapper-video {
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
+  }
+}
+
 .videos .modal-video .wrapper-video .close-video {
   width: 32px;
   height: 32px;
@@ -1516,6 +1517,13 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 .videos .modal-video .wrapper-video .close-video:hover {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+
+@media screen and (max-width: 799px) {
+  .videos .modal-video .wrapper-video .close-video {
+    right: 20px;
+    top: 20px;
+  }
 }
 
 .videos .modal-video .wrapper-video .video-container {
@@ -1536,11 +1544,21 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 }
 
 .videos .modal-video .wrapper-video .video-container .video-code {
-  width: 100%;
-  height: 100%;
-  padding: 10%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  width: 800px;
+  height: 450px;
+}
+
+@media screen and (max-width: 1023px) {
+  .videos .modal-video .wrapper-video .video-container .video-code {
+    width: 600px;
+    height: 342px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .videos .modal-video .wrapper-video .video-container .video-code {
+    width: 90%;
+  }
 }
 
 .videos .modal-video .wrapper-video .video-container .video-code iframe {
@@ -1566,12 +1584,19 @@ header .main-heading .slide-container .slide-bullets .bullet.selected {
 }
 
 .videos .modal-video.video-open .wrapper-video {
-  width: 80vw;
+  width: 90vw;
   height: 80vh;
   opacity: 1;
   top: 50%;
   -webkit-transform: translate(-50%, -50%) perspective(0em) rotateX(0deg);
           transform: translate(-50%, -50%) perspective(0em) rotateX(0deg);
+}
+
+@media screen and (max-width: 799px) {
+  .videos .modal-video.video-open .wrapper-video {
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+  }
 }
 
 .videos .modal-video.video-open .wrapper-video .video-container .video-code iframe {
