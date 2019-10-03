@@ -177,7 +177,8 @@ window.addEventListener("load", event => {
 
     const videoItem = document.querySelectorAll('.video-item'),
         modalVideo = document.querySelector('.modal-video'),
-        iconCloseVideo = document.querySelector('.close-video');
+        iconCloseVideo = document.querySelector('.close-video'),
+        videoFrame = document.querySelector(".video-code iframe");
 
     videoItem.forEach(function (el) {
         el.addEventListener("click", openVideo);
@@ -186,12 +187,9 @@ window.addEventListener("load", event => {
     iconCloseVideo.addEventListener("click", closeVideo);
 
     function openVideo(e) {
-        const videoSrc = e.currentTarget.dataset.video,
-            videoUrl = e.currentTarget.dataset.url,
-            videoFrame = document.querySelector(".video-code iframe");
+        const videoSrc = e.currentTarget.dataset.video;
 
         body.classList.add('no-scroll');
-
 
         modalVideo.classList.add('video-open');
 
@@ -203,8 +201,8 @@ window.addEventListener("load", event => {
 
     function closeVideo() {
         body.classList.remove('no-scroll');
-        videoFrame.src = "";
         modalVideo.classList.remove('video-open');
+        videoFrame.src = "";
 
 
 
