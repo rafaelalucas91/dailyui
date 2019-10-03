@@ -8,11 +8,16 @@ h6,
 p,
 ul,
 li,
-button {
+button,
+a,
+i {
   margin: 0;
   padding: 0;
   list-style: none;
   border: 0;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: inherit;
 }
 
 h1:focus,
@@ -24,7 +29,9 @@ h6:focus,
 p:focus,
 ul:focus,
 li:focus,
-button:focus {
+button:focus,
+a:focus,
+i:focus {
   outline: 0;
 }
 
@@ -299,6 +306,13 @@ nav .icon-menu:hover span:before {
 
 nav .icon-menu:hover span:after {
   bottom: 11px;
+}
+
+@media screen and (max-width: 799px) {
+  nav .icon-menu:hover {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 nav .icon-menu.icon-open span {

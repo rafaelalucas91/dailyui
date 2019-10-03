@@ -49,11 +49,16 @@ h6,
 p,
 ul,
 li,
-button {
+button,
+a,
+i {
     margin: 0;
     padding: 0;
     list-style: none;
     border: 0;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    color: inherit;
 
     &:focus {
         outline: 0;
@@ -227,8 +232,6 @@ nav {
     .icon-menu {
         width: 48px;
         height: 48px;
-        //background-color: white;
-        //grid-column-end: 13;
         z-index: 5;
         top: 40px;
         right: 40px;
@@ -291,6 +294,10 @@ nav {
                 &:after {
                     bottom: 11px;
                 }
+            }
+
+            @include sm {
+                box-shadow: none;
             }
         }
 
