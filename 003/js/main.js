@@ -45,7 +45,7 @@ window.addEventListener("load", event => {
         setTimeout(function () {
             slideActive.classList.remove("anime-in");
             slideNext.classList.remove("anime-next-in");
-        }, 1500);
+        }, 980);
 
         // To Populate the Active and Next Slide
 
@@ -66,7 +66,6 @@ window.addEventListener("load", event => {
         });
         activeBullet.classList.add("selected");
 
-        console.log(activeBullet);
     }
 
     function prevPhoto() {
