@@ -45,7 +45,7 @@ window.addEventListener("load", event => {
         setTimeout(function () {
             slideActive.classList.remove("anime-in");
             slideNext.classList.remove("anime-next-in");
-        }, 980);
+        }, 960);
 
         // To Populate the Active and Next Slide
 
@@ -85,7 +85,7 @@ window.addEventListener("load", event => {
         setTimeout(function () {
             slideActive.classList.remove("anime-out");
             slideNext.classList.remove("anime-next-out");
-        }, 1500);
+        }, 960);
 
 
         // To Populate the Active and Next Slide
@@ -185,11 +185,9 @@ window.addEventListener("load", event => {
     const videoItem = document.querySelectorAll('.video-item'),
         modalVideo = document.querySelector('.modal-video'),
         iconCloseVideo = document.querySelector('.close-video'),
-        videoFrame = document.querySelector(".video-code iframe");
+        videoFrame = document.querySelector(".video-code iframe"),
+        videoOpen = document.querySelector(".video-open");
 
-    var modalBefore = window.getComputedStyle(
-        document.querySelector('.modal-video'), ':after'
-    );
 
 
     videoItem.forEach(function (el) {
@@ -197,8 +195,8 @@ window.addEventListener("load", event => {
     })
 
     iconCloseVideo.addEventListener("click", closeVideo);
+    // body.addEventListener("click", closeVideo);
 
-    modalBefore.addEventListener("click", closeVideo);
 
     function openVideo(e) {
         const videoSrc = e.currentTarget.dataset.video;
@@ -213,12 +211,13 @@ window.addEventListener("load", event => {
 
     // ytLink.href = videoUrl;
 
+
+
     function closeVideo() {
+
         body.classList.remove('no-scroll');
         modalVideo.classList.remove('video-open');
         videoFrame.src = "";
-
-
 
     }
 

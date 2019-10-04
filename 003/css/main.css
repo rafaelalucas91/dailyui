@@ -60,8 +60,8 @@ body.no-scroll {
   position: relative;
   letter-spacing: 0.05em;
   cursor: pointer;
-  display: block;
   margin: auto;
+  display: block;
 }
 
 .btn:focus {
@@ -858,8 +858,8 @@ header .main-heading .slide-container .slide-wrapper .slide.anime-in:before {
   height: 100%;
   position: absolute;
   background-image: linear-gradient(-225deg, #7fb6ca 0%, #c6dde2 100%);
-  -webkit-animation: anime-in-before 0.4s ease both;
-          animation: anime-in-before 0.4s ease both;
+  -webkit-animation: anime-in-before 0.6s ease both;
+          animation: anime-in-before 0.6s ease both;
 }
 
 @-webkit-keyframes anime-in-before {
@@ -897,8 +897,8 @@ header .main-heading .slide-container .slide-wrapper .slide.anime-in img {
 }
 
 header .main-heading .slide-container .slide-wrapper .slide.anime-next-in img {
-  -webkit-animation: anime-next-in 0.4s 0.4s ease both;
-          animation: anime-next-in 0.4s 0.4s ease both;
+  -webkit-animation: anime-next-in 0.4s 0.2s ease both;
+          animation: anime-next-in 0.4s 0.2s ease both;
   z-index: 1;
 }
 
@@ -922,8 +922,8 @@ header .main-heading .slide-container .slide-wrapper .slide.anime-out:before {
   height: 100%;
   position: absolute;
   background-image: linear-gradient(-225deg, #7fb6ca 0%, #c6dde2 100%);
-  -webkit-animation: anime-out-before 0.4s ease both;
-          animation: anime-out-before 0.4s ease both;
+  -webkit-animation: anime-out-before 0.6s ease both;
+          animation: anime-out-before 0.6s ease both;
 }
 
 @-webkit-keyframes anime-out-before {
@@ -941,8 +941,8 @@ header .main-heading .slide-container .slide-wrapper .slide.anime-out:before {
 }
 
 header .main-heading .slide-container .slide-wrapper .slide.anime-out img {
-  -webkit-animation: anime-out 0.4s 0.4s ease both;
-          animation: anime-out 0.4s 0.4s ease both;
+  -webkit-animation: anime-out 0.6s 0.4s ease both;
+          animation: anime-out 0.6s 0.4s ease both;
   z-index: 1;
 }
 
@@ -961,8 +961,8 @@ header .main-heading .slide-container .slide-wrapper .slide.anime-out img {
 }
 
 header .main-heading .slide-container .slide-wrapper .slide.anime-next-out img {
-  -webkit-animation: anime-next-out 0.6s 0.4s ease both;
-          animation: anime-next-out 0.6s 0.4s ease both;
+  -webkit-animation: anime-next-out 0.4s 0.2s ease both;
+          animation: anime-next-out 0.4s 0.2s ease both;
   z-index: 1;
 }
 

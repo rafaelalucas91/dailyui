@@ -101,8 +101,8 @@ body {
     position: relative;
     letter-spacing: 0.05em;
     cursor: pointer;
-    display: block;
     margin: auto;
+    display: block;
 
     &:focus {
         outline: 0;
@@ -733,7 +733,7 @@ header {
                             height: 100%;
                             position: absolute;
                             background-image: $g-02;
-                            animation: anime-in-before 0.4s ease both;
+                            animation: anime-in-before 0.6s ease both;
 
                             @keyframes anime-in-before {
                                 0% {
@@ -756,7 +756,7 @@ header {
 
                     &.anime-next-in {
                         img {
-                            animation: anime-next-in 0.4s 0.4s ease both;
+                            animation: anime-next-in 0.4s 0.2s ease both;
                             z-index: 1;
 
                             @keyframes anime-next-in {
@@ -774,7 +774,7 @@ header {
                             height: 100%;
                             position: absolute;
                             background-image: $g-02;
-                            animation: anime-out-before 0.4s ease both;
+                            animation: anime-out-before 0.6s ease both;
 
                             @keyframes anime-out-before {
                                 0% {
@@ -784,7 +784,7 @@ header {
                         }
 
                         img {
-                            animation: anime-out 0.4s 0.4s ease both;
+                            animation: anime-out 0.6s 0.4s ease both;
                             z-index: 1;
 
                             @keyframes anime-out {
@@ -797,7 +797,7 @@ header {
 
                     &.anime-next-out {
                         img {
-                            animation: anime-next-out 0.6s 0.4s ease both;
+                            animation: anime-next-out 0.4s 0.2s ease both;
                             z-index: 1;
 
                             @keyframes anime-next-out {
