@@ -135,7 +135,7 @@ window.addEventListener("load", event => {
     // open menu
 
     const iconMenu = document.querySelector('.icon-menu'),
-        menuOverlay = document.querySelector('.menu'),
+        menuOverlay = document.querySelector('.main-nav'),
         body = document.querySelector('body');
 
     iconMenu.addEventListener("click", openMenu);
@@ -156,12 +156,20 @@ window.addEventListener("load", event => {
     function openMenu() {
 
         if (iconMenu.classList.contains('icon-open')) {
-            menuOverlay.classList.remove('menu-open');
+            menuOverlay.classList.add('menu-close');
             iconMenu.classList.remove('icon-open');
             body.classList.remove('no-scroll');
             iconMenu.classList.remove('sticky');
 
+            setTimeout(function () {
+                menuOverlay.classList.remove('menu-open');
+            }, 800);
+            setTimeout(function () {
+                menuOverlay.classList.remove('menu-close');
+            }, 900);
+
         } else {
+            menuOverlay.classList.remove('menu-close');
             menuOverlay.classList.add('menu-open');
             iconMenu.classList.add('icon-open');
             body.classList.add('no-scroll');
